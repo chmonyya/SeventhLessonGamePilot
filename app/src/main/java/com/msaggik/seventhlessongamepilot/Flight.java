@@ -12,6 +12,7 @@ public class Flight {
     private int wingCounter = 0; // поле счётчика крыла
     private Bitmap flight1, flight2; // поле растровых изображений
     private boolean isGoingUp = false; // направление движения самолёта (true - вверх, false - вниз)
+    private boolean isGoingDown = false;
 
     // конструктор (размеры по оси X и Y, ресурс)
     public Flight(int screenX, int screenY, Resources resources) {
@@ -70,7 +71,13 @@ public class Flight {
     public boolean isGoingUp() {
         return isGoingUp;
     }
+    public boolean isGoingDown() {
+        return isGoingDown;
+    }
 
+    public void setGoingDown(boolean goingDown) {
+        isGoingDown = goingDown;
+    }
     public void setGoingUp(boolean goingUp) {
         isGoingUp = goingUp;
     }
@@ -90,4 +97,6 @@ public class Flight {
     public void setHeight(int height) {
         this.height = height;
     }
+
+
 }

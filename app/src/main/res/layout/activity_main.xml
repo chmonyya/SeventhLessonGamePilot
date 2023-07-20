@@ -29,11 +29,11 @@
         android:id="@+id/play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:text="Играть"
-        android:textStyle="bold"
         android:textColor="#024340"
         android:textSize="50sp"
-        android:layout_centerInParent="true"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/highScore"

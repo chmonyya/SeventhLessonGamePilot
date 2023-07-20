@@ -66,7 +66,7 @@ public class GameView extends SurfaceView implements Runnable{
         // задание скорости подъёма и снижения самолёта
         if (flight.isGoingUp()) { // условие подъёма
             flight.setY(flight.getY() - (int)(30 * screenRatioY));
-        } else { // условие снижения
+        } else if (flight.isGoingDown()){ // условие снижения
             flight.setY(flight.getY() + (int)(30 * screenRatioY));
         }
         // задание порога значений местоположения самолёта
@@ -140,8 +140,13 @@ public class GameView extends SurfaceView implements Runnable{
             case MotionEvent.ACTION_DOWN: // нажатие
                 // если пользователь нажал на левую сторону экрана
                 if (event.getX() < (screenX / 2)) {
-                    // то движение самолёта вверх
-                    flight.setGoingUp(true);
+                    if (event.getY() < (screenY / 2)) {
+                        // то движение самолёта вверх
+                        flight.setGoingUp(true);
+                    }
+                    else {
+                        flight.setGoingDown(true);
+                    }
                 } else if (event.getX() >= (screenX / 2)){
 
                 }
@@ -152,6 +157,7 @@ public class GameView extends SurfaceView implements Runnable{
             case MotionEvent.ACTION_UP: // отпускание
                 // при отпускании экрана самолёт начнёт снижаться
                 flight.setGoingUp(false);
+                flight.setGoingDown(false);
                 break;
         }
 
